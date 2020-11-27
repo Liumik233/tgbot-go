@@ -117,17 +117,17 @@ func main() {
 		log.Fatal(err)
 		return
 	}
-	tb1.Handle(tb.OnCallback, func(m *tb.Message) {
-		tb1.Reply(m.ReplyTo, "欢迎加入新番计划，在群里发送/join 邮箱即可加入团队盘")
-	})
+	/*tb1.Handle(tb.OnCallback, func(m *tb.Message) {
+		tb1.Send(m.Sender, "欢迎加入新番计划，在群里发送/join 邮箱即可加入团队盘")
+	})*/
 	tb1.Handle(tb.OnText, func(m *tb.Message) {
 		if strings.HasPrefix(m.Text, "/join") {
 			str := strings.Replace(m.Text, " ", "", -1)
 			if cuser(srv, strings.TrimPrefix(str, "/join"), fileid) == 0 {
-				_, err := tb1.Reply(m.ReplyTo, "添加成功")
+				tb1.Send(m.Sender, "添加成功")
 				log.Println(err)
 			} else {
-				tb1.Reply(m.ReplyTo, "添加失败")
+				tb1.Send(m.Sender, "添加失败")
 			}
 		}
 	})
