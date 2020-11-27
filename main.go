@@ -71,7 +71,13 @@ func saveToken(path string, token *oauth2.Token) {
 
 func cuser(srv *drive.Service, email string, fileid string) {
 	per := drive.Permission{EmailAddress: email, Type: "user", Role: "reader"}
-	srv.Permissions.Create(fileid, &per)
+	p1 := srv.Permissions.Create(fileid, &per)
+	p1.SupportsTeamDrives(true)
+	_, err := p1.Do()
+	if err != nil {
+		log.Fatalf("add error: %v", err)
+	}
+
 }
 
 func main() {
