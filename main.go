@@ -3,15 +3,17 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	//"io/ioutil"
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
-	"golang.org/x/oauth2/google"
+	//"golang.org/x/oauth2/google"
 	"google.golang.org/api/drive/v3"
+	tb "gopkg.in/tucnak/telebot.v2"
 )
 
 // Retrieve a token, saves the token, then returns the generated client.
@@ -70,7 +72,10 @@ func saveToken(path string, token *oauth2.Token) {
 }
 
 func cuser(srv *drive.Service, email string, fileid string) {
-	per := drive.Permission{EmailAddress: email, Type: "user", Role: "reader"}
+	per := drive.Permission{
+		EmailAddress: email,
+		Type:         "user", Role: "reader",
+	}
 	p1 := srv.Permissions.Create(fileid, &per)
 	p1.SupportsTeamDrives(true)
 	_, err := p1.Do()
@@ -81,7 +86,7 @@ func cuser(srv *drive.Service, email string, fileid string) {
 }
 
 func main() {
-	b, err := ioutil.ReadFile("credentials.json")
+	/*b, err := ioutil.ReadFile("credentials.json")
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
 	}
@@ -94,8 +99,21 @@ func main() {
 	if err != nil {
 		log.Fatalf("Unable to retrieve Drive client: %v", err)
 	}
-	var email, fileid string
-	fmt.Scan(&email)
-	fmt.Scan(&fileid)
-	cuser(srv, email, fileid)
+	var fileid,token string
+	fmt.Println("Input Teamdrive ID:\n")
+	fmt.Scan(&fileid)*/
+	fmt.Println("Input Tgbot Token:")
+	var token string
+	fmt.Scan(&token)
+	tb1, err := tb.NewBot(tb.Settings{
+		Token:  token,
+		Poller: &tb.LongPoller{Timeout: 10 * time.Second},
+	})
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+	tb1.Handle(tb.OnText, func(m *tb.Message) {
+		fmt.Println(m.Text)
+	})
 }
