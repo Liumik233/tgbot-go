@@ -116,4 +116,5 @@ func main() {
 	tb1.Handle(tb.OnText, func(m *tb.Message) {
 		fmt.Println(m.Text)
 	})
+	tb1.Start()
 }
