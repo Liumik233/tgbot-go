@@ -3,6 +3,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"golang.org/x/oauth2/google"
+	"io/ioutil"
+	"strings"
+
 	//"io/ioutil"
 	"log"
 	"net/http"
@@ -71,7 +75,7 @@ func saveToken(path string, token *oauth2.Token) {
 	json.NewEncoder(f).Encode(token)
 }
 
-func cuser(srv *drive.Service, email string, fileid string) {
+func cuser(srv *drive.Service, email string, fileid string) int {
 	per := drive.Permission{
 		EmailAddress: email,
 		Type:         "user", Role: "reader",
@@ -81,12 +85,13 @@ func cuser(srv *drive.Service, email string, fileid string) {
 	_, err := p1.Do()
 	if err != nil {
 		log.Fatalf("add error: %v", err)
+		return 1
 	}
-
+	return 0
 }
 
 func main() {
-	/*b, err := ioutil.ReadFile("credentials.json")
+	b, err := ioutil.ReadFile("credentials.json")
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
 	}
@@ -99,11 +104,10 @@ func main() {
 	if err != nil {
 		log.Fatalf("Unable to retrieve Drive client: %v", err)
 	}
-	var fileid,token string
-	fmt.Println("Input Teamdrive ID:\n")
-	fmt.Scan(&fileid)*/
+	var fileid, token string
+	fmt.Println("Input Teamdrive ID:")
+	fmt.Scan(&fileid)
 	fmt.Println("Input Tgbot Token:")
-	var token string
 	fmt.Scan(&token)
 	tb1, err := tb.NewBot(tb.Settings{
 		Token:  token,
@@ -114,7 +118,14 @@ func main() {
 		return
 	}
 	tb1.Handle(tb.OnText, func(m *tb.Message) {
-		fmt.Println(m.Text)
+		if strings.HasPrefix(m.Text, "/join") {
+			str := strings.Replace(m.Text, " ", "", -1)
+			if cuser(srv, strings.TrimPrefix(str, "/join"), fileid) == 0 {
+				tb1.Send(m.Sender, "添加成功")
+			} else {
+				tb1.Send(m.Sender, "添加失败")
+			}
+		}
 	})
 	tb1.Start()
 }
