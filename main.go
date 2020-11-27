@@ -84,7 +84,7 @@ func cuser(srv *drive.Service, email string, fileid string) int {
 	p1.SupportsTeamDrives(true)
 	_, err := p1.Do()
 	if err != nil {
-		log.Fatalf("add error: %v", err)
+		log.Println(err)
 		return 1
 	}
 	return 0
