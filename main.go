@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"golang.org/x/oauth2/google"
 	"io/ioutil"
-	"strings"
-
 	//"io/ioutil"
 	"log"
 	"net/http"
@@ -149,21 +147,18 @@ func main() {
 		log.Fatal(err)
 		return
 	}
-	tb1.Handle(tb.OnCallback, func(m *tb.Message) {
-		tb1.Send(m.Sender, "欢迎加入新番计划，在群里发送/join 邮箱即可加入团队盘")
+	tb1.Handle(tb.OnUserJoined, func(m *tb.Message) {
+
+		tb1.Reply(m, "欢迎加入新番计划，在群里发送\"/join 邮箱\"即可加入团队盘")
 	})
 	tb1.Handle("/join", func(m *tb.Message) {
-		if strings.HasPrefix(m.Text, "/join") {
-			str := strings.Replace(m.Text, " ", "", -1)
-			if cuser(srv, strings.TrimPrefix(str, "/join"), conf1.Fileid) == 0 {
-				tb1.Send(m.Sender, "添加成功")
-				log.Println(err)
+		if m.Chat.Type == "group" {
+			if cuser(srv, m.Payload, conf1.Fileid) == 0 {
+				tb1.Reply(m, "添加成功")
 			} else {
-				tb1.Send(m.Sender, "添加失败")
+				tb1.Reply(m, "添加失败")
 			}
 		}
-		fmt.Println(m.Payload)
-
 	})
 	tb1.Start()
 }
