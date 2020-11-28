@@ -90,6 +90,17 @@ func cuser(srv *drive.Service, email string, fileid string) int {
 	return 0
 }
 
+func Exists(path string) bool {
+	_, err := os.Stat(path) //os.Stat获取文件信息
+	if err != nil {
+		if os.IsExist(err) {
+			return true
+		}
+		return false
+	}
+	return true
+}
+
 func main() {
 	b, err := ioutil.ReadFile("credentials.json")
 	if err != nil {
@@ -104,32 +115,55 @@ func main() {
 	if err != nil {
 		log.Fatalf("Unable to retrieve Drive client: %v", err)
 	}
-	var fileid, token string
-	fmt.Println("Input Teamdrive ID:")
-	fmt.Scan(&fileid)
-	fmt.Println("Input Tgbot Token:")
-	fmt.Scan(&token)
+	conf1 := struct {
+		Fileid string `Fileid`
+		Token  string `Token`
+	}{}
+	if Exists("conf.json") {
+		c1, err := os.OpenFile("./conf.json", os.O_RDONLY, 0600)
+		defer c1.Close()
+		if err != nil {
+			log.Fatal("openfile error:", err)
+		}
+		confs, err := ioutil.ReadAll(c1)
+		json.Unmarshal(confs, &conf1)
+	} else {
+		fmt.Println("Input Teamdrive ID:")
+		fmt.Scan(&conf1.Fileid)
+		fmt.Println("Input Tgbot Token:")
+		fmt.Scan(&conf1.Token)
+		tmp1, _ := json.Marshal(conf1)
+		c1, err := os.Create("conf.json")
+		defer c1.Close()
+		if err != nil {
+			log.Println("create conf.json error:", err)
+			os.Exit(1)
+		}
+		c1.Write(tmp1)
+	}
 	tb1, err := tb.NewBot(tb.Settings{
-		Token:  token,
+		Token:  conf1.Token,
 		Poller: &tb.LongPoller{Timeout: 10 * time.Second},
 	})
 	if err != nil {
 		log.Fatal(err)
 		return
 	}
-	/*tb1.Handle(tb.OnCallback, func(m *tb.Message) {
+	tb1.Handle(tb.OnCallback, func(m *tb.Message) {
 		tb1.Send(m.Sender, "欢迎加入新番计划，在群里发送/join 邮箱即可加入团队盘")
-	})*/
-	tb1.Handle(tb.OnText, func(m *tb.Message) {
+	})
+	tb1.Handle("/join", func(m *tb.Message) {
 		if strings.HasPrefix(m.Text, "/join") {
 			str := strings.Replace(m.Text, " ", "", -1)
-			if cuser(srv, strings.TrimPrefix(str, "/join"), fileid) == 0 {
+			if cuser(srv, strings.TrimPrefix(str, "/join"), conf1.Fileid) == 0 {
 				tb1.Send(m.Sender, "添加成功")
 				log.Println(err)
 			} else {
 				tb1.Send(m.Sender, "添加失败")
 			}
 		}
+		fmt.Println(m.Payload)
+
 	})
 	tb1.Start()
 }
