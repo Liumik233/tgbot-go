@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"golang.org/x/oauth2/google"
 	"io/ioutil"
+	"strings"
+
 	//"io/ioutil"
 	"log"
 	"net/http"
@@ -152,7 +154,7 @@ func main() {
 		tb1.Reply(m, "欢迎加入新番计划，在群里发送\"/join 邮箱\"即可加入团队盘")
 	})
 	tb1.Handle("/join", func(m *tb.Message) {
-		if m.Chat.Type == "group" {
+		if strings.HasSuffix(string(m.Chat.Type), "group") {
 			if cuser(srv, m.Payload, conf1.Fileid) == 0 {
 				tb1.Reply(m, "添加成功")
 			} else {
