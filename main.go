@@ -159,9 +159,9 @@ func main() {
 				tb1.Reply(m, "请填写邮箱！！")
 			} else {
 				if cuser(srv, m.Payload, conf1.Fileid) == 0 {
-					tb1.Reply(m, "添加成功")
+					tb1.Reply(m, "添加成功！")
 				} else {
-					tb1.Reply(m, "添加失败")
+					tb1.Reply(m, "添加失败,请检查邮箱是否填写正确！")
 				}
 			}
 		}
