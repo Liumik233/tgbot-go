@@ -155,10 +155,14 @@ func main() {
 	})
 	tb1.Handle("/join", func(m *tb.Message) {
 		if strings.HasSuffix(string(m.Chat.Type), "group") {
-			if cuser(srv, m.Payload, conf1.Fileid) == 0 {
-				tb1.Reply(m, "添加成功")
+			if m.Payload == "" {
+				tb1.Reply(m, "请填写邮箱！！")
 			} else {
-				tb1.Reply(m, "添加失败")
+				if cuser(srv, m.Payload, conf1.Fileid) == 0 {
+					tb1.Reply(m, "添加成功")
+				} else {
+					tb1.Reply(m, "添加失败")
+				}
 			}
 		}
 	})
