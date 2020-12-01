@@ -158,10 +158,14 @@ func main() {
 			if m.Payload == "" {
 				tb1.Reply(m, "请填写邮箱！！")
 			} else {
-				if cuser(srv, m.Payload, conf1.Fileid) == 0 {
-					tb1.Reply(m, "添加成功！")
+				if strings.HasSuffix(m.Payload, "gmail.com") {
+					tb1.Reply(m, "禁止非gmail邮箱！！")
 				} else {
-					tb1.Reply(m, "添加失败,请检查邮箱是否填写正确！")
+					if cuser(srv, m.Payload, conf1.Fileid) == 0 {
+						tb1.Reply(m, "添加成功！")
+					} else {
+						tb1.Reply(m, "添加失败,请检查邮箱是否填写正确！")
+					}
 				}
 			}
 		}
