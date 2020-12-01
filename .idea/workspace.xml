@@ -20,11 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f765cee-dbec-48b9-b40e-7b5b469b1e1e" name="默认的" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/tgbot-go.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,10 +136,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="637" y="172" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1606467663562" />
-    <state x="728" y="261" key="Vcs.Push.Dialog.v2" timestamp="1606631662405">
+    <state x="728" y="261" key="Vcs.Push.Dialog.v2" timestamp="1606828551835">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="728" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1606631662405" />
+    <state x="728" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1606828551835" />
     <state x="949" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606482450759">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
