@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6f765cee-dbec-48b9-b40e-7b5b469b1e1e" name="默认的" comment="update">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/tgbot-go.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Users\LiumikHazne\go\go1.15.3" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1krl9IV1zSX4fHJAEmh2CEWSUyJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.全局.GOPATH.is.expanded" value="true" />
+    <property name="configurable.模块.GOPATH.is.expanded" value="false" />
+    <property name="configurable.项目.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="tgbot-go" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="tgbot-go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go 构建.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="928" y="361" key="#Go_模块" timestamp="1606482250121">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="928" y="361" key="#Go_模块/0.0.1920.1080@0.0.1920.1080" timestamp="1606482250121" />
+    <state x="590" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606482222485">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="590" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1606482222485" />
+    <state x="916" y="269" key="FileChooserDialogImpl" timestamp="1606551554067">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="916" y="269" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1606551554067" />
+    <state x="985" y="447" key="Github.CreateGistDialog" timestamp="1606472090578">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="985" y="447" key="Github.CreateGistDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1606472090578" />
+    <state width="1340" height="264" key="GridCell.Tab.0.bottom" timestamp="1606490487465">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1340" height="264" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1606490487465" />
+    <state width="1340" height="264" key="GridCell.Tab.0.center" timestamp="1606490487465">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1340" height="264" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1606490487465" />
+    <state width="1340" height="264" key="GridCell.Tab.0.left" timestamp="1606490487465">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1340" height="264" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1606490487465" />
+    <state width="1340" height="264" key="GridCell.Tab.0.right" timestamp="1606490487465">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1340" height="264" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1606490487465" />
+    <state x="637" y="172" key="SettingsEditor" timestamp="1606467663562">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="637" y="172" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1606467663562" />
+    <state x="728" y="261" key="Vcs.Push.Dialog.v2" timestamp="1606631662405">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="728" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1606631662405" />
+    <state x="949" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606482450759">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="949" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1606482450759" />
+    <state x="937" y="434" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1606472316846">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="937" y="434" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1606472316846" />
+  </component>
+</project>
