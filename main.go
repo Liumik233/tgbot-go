@@ -92,6 +92,7 @@ func cuser(srv *drive.Service, email string, fileid string) int {
 func duser(srv *drive.Service, fileid string, email string) int {
 	l := srv.Permissions.List(fileid)
 	l.SupportsAllDrives(true)
+	l.UseDomainAdminAccess(true)
 	l1, err := l.Do()
 	if err != nil {
 		log.Println(err)
