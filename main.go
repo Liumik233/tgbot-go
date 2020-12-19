@@ -186,9 +186,9 @@ func main() {
 		fmt.Println(m.Sender.Username)
 		if m.Sender.Username == "Liumik" {
 			if del(srv, conf1.Fileid, m.Payload) == 0 {
-				tb1.Reply(m, "添加成功")
+				tb1.Reply(m, "删除成功")
 			} else {
-				tb1.Reply(m, "添加失败，请查看后台日志")
+				tb1.Reply(m, "删除失败，请查看后台日志")
 			}
 		}
 	})
