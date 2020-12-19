@@ -183,8 +183,7 @@ func main() {
 		}
 	})
 	tb1.Handle("/del", func(m *tb.Message) {
-		fmt.Println(m.Sender.Username)
-		if m.Sender.Username == "Liumik" {
+		if m.Sender.Username == "Liumik" || m.Sender.Username == "Uzibird" {
 			if del(srv, conf1.Fileid, m.Payload) == 0 {
 				tb1.Reply(m, "删除成功")
 			} else {
