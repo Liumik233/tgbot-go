@@ -100,7 +100,7 @@ func duser(srv *drive.Service, fileid string, email string) int {
 	for i := 0; i <= len(l1.Permissions); i++ {
 		if l1.Permissions[i].EmailAddress == email {
 			call := srv.Permissions.Delete(fileid, l1.Permissions[i].Id)
-			call.SupportsAllDrives(true)
+			call.SupportsTeamDrives(true)
 			err := call.Do()
 			if err != nil {
 				log.Println(err)
