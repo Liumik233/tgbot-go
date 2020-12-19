@@ -89,29 +89,6 @@ func cuser(srv *drive.Service, email string, fileid string) int {
 	}
 	return 0
 }
-func duser(srv *drive.Service, fileid string, email string) int {
-	l := srv.Permissions.List(fileid)
-	l.SupportsAllDrives(true)
-	l1, err := l.Do()
-	if err != nil {
-		log.Println(err)
-		return 1
-	}
-	for i := 0; i < len(l1.Permissions); i++ {
-		log.Printf(l1.Permissions[i].EmailAddress)
-		if l1.Permissions[i].EmailAddress == email {
-			call := srv.Permissions.Delete(fileid, l1.Permissions[i].Id)
-			call.SupportsAllDrives(true)
-			err := call.Do()
-			if err != nil {
-				log.Println(err)
-				log.Printf("here")
-				return 1
-			}
-		}
-	}
-	return 0
-}
 
 func Exists(path string) bool {
 	_, err := os.Stat(path) //os.Stat获取文件信息
@@ -193,6 +170,5 @@ func main() {
 			}
 		}
 	})
-	duser(srv, conf1.Fileid, "liumikjp@gmail.com")
 	tb1.Start()
 }
