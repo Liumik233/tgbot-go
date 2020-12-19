@@ -89,6 +89,27 @@ func cuser(srv *drive.Service, email string, fileid string) int {
 	}
 	return 0
 }
+func duser(srv *drive.Service, fileid string, email string) int {
+	l := srv.Permissions.List(fileid)
+	l.SupportsTeamDrives(true)
+	l1, err := l.Do()
+	if err != nil {
+		log.Println(err)
+		return 1
+	}
+	for i := 0; i <= len(l1.Permissions); i++ {
+		if l1.Permissions[i].EmailAddress == email {
+			call := srv.Permissions.Delete(fileid, l1.Permissions[i].Id)
+			call.SupportsAllDrives(true)
+			err := call.Do()
+			if err != nil {
+				log.Println(err)
+				return 1
+			}
+		}
+	}
+	return 0
+}
 
 func Exists(path string) bool {
 	_, err := os.Stat(path) //os.Stat获取文件信息
@@ -167,6 +188,15 @@ func main() {
 				} else {
 					tb1.Reply(m, "禁止非gmail邮箱！！")
 				}
+			}
+		}
+	})
+	tb1.Handle("/del", func(m *tb.Message) {
+		if strings.HasSuffix(string(m.Chat.Type), "group") {
+			if duser(srv, conf1.Fileid, m.Payload) == 0 {
+				tb1.Reply(m, "删除成功！")
+			} else {
+				tb1.Reply(m, "删除失败，请检查邮箱是否填写正确或查看后台日志排查问题")
 			}
 		}
 	})
