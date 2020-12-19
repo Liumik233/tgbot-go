@@ -35,7 +35,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="C:\Users\LiumikHazne\go\go1.15.3" />
+  <component name="GOROOT" url="file:///usr/lib/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -49,16 +49,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.全局.GOPATH.is.expanded" value="true" />
     <property name="configurable.模块.GOPATH.is.expanded" value="false" />
     <property name="configurable.项目.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RunManager">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -98,55 +101,5 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="928" y="361" key="#Go_模块" timestamp="1606482250121">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="928" y="361" key="#Go_模块/0.0.1920.1080@0.0.1920.1080" timestamp="1606482250121" />
-    <state x="590" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606482222485">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="590" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1606482222485" />
-    <state x="916" y="269" key="FileChooserDialogImpl" timestamp="1606551554067">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="916" y="269" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1606551554067" />
-    <state x="985" y="447" key="Github.CreateGistDialog" timestamp="1606472090578">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="985" y="447" key="Github.CreateGistDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1606472090578" />
-    <state width="1340" height="264" key="GridCell.Tab.0.bottom" timestamp="1606490487465">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1340" height="264" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1606490487465" />
-    <state width="1340" height="264" key="GridCell.Tab.0.center" timestamp="1606490487465">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1340" height="264" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1606490487465" />
-    <state width="1340" height="264" key="GridCell.Tab.0.left" timestamp="1606490487465">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1340" height="264" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1606490487465" />
-    <state width="1340" height="264" key="GridCell.Tab.0.right" timestamp="1606490487465">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1340" height="264" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1606490487465" />
-    <state x="637" y="172" key="SettingsEditor" timestamp="1606467663562">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="637" y="172" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1606467663562" />
-    <state x="728" y="261" key="Vcs.Push.Dialog.v2" timestamp="1606828551835">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="728" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1606828551835" />
-    <state x="949" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606482450759">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="949" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1606482450759" />
-    <state x="937" y="434" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1606472316846">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="937" y="434" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1606472316846" />
   </component>
 </project>

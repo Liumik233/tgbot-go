@@ -81,7 +81,7 @@ func cuser(srv *drive.Service, email string, fileid string) int {
 		Type:         "user", Role: "reader",
 	}
 	p1 := srv.Permissions.Create(fileid, &per)
-	p1.SupportsTeamDrives(true)
+	p1.SupportsAllDrives(true)
 	_, err := p1.Do()
 	if err != nil {
 		log.Println(err)
@@ -91,7 +91,7 @@ func cuser(srv *drive.Service, email string, fileid string) int {
 }
 func duser(srv *drive.Service, fileid string, email string) int {
 	l := srv.Permissions.List(fileid)
-	l.SupportsTeamDrives(true)
+	l.SupportsAllDrives(true)
 	l1, err := l.Do()
 	if err != nil {
 		log.Println(err)
@@ -100,7 +100,7 @@ func duser(srv *drive.Service, fileid string, email string) int {
 	for i := 0; i <= len(l1.Permissions); i++ {
 		if l1.Permissions[i].EmailAddress == email {
 			call := srv.Permissions.Delete(fileid, l1.Permissions[i].Id)
-			call.SupportsTeamDrives(true)
+			call.SupportsAllDrives(true)
 			err := call.Do()
 			if err != nil {
 				log.Println(err)
