@@ -104,6 +104,7 @@ func duser(srv *drive.Service, fileid string, email string) int {
 			err := call.Do()
 			if err != nil {
 				log.Println(err)
+				log.Printf("here")
 				return 1
 			}
 		}
