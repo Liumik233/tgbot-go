@@ -75,14 +75,25 @@ func saveToken(path string, token *oauth2.Token) {
 	json.NewEncoder(f).Encode(token)
 }
 
-func cuser(srv *drive.Service, email string, fileid string) int {
+func cuser(srv *drive.Service, email string, fileid string) string {
 	per := drive.Permission{
 		EmailAddress: email,
 		Type:         "user", Role: "reader",
 	}
 	p1 := srv.Permissions.Create(fileid, &per)
 	p1.SupportsAllDrives(true)
-	_, err := p1.Do()
+	p, err := p1.Do()
+	if err != nil {
+		log.Println(err)
+		return ""
+	}
+	return p.Id
+}
+
+func del(srv *drive.Service, fileid string, id string) int {
+	d := srv.Permissions.Delete(fileid, id)
+	d.SupportsTeamDrives(true)
+	err := d.Do()
 	if err != nil {
 		log.Println(err)
 		return 1
@@ -159,14 +170,25 @@ func main() {
 				tb1.Reply(m, "请填写邮箱！！")
 			} else {
 				if strings.HasSuffix(m.Payload, "gmail.com") {
-					if cuser(srv, m.Payload, conf1.Fileid) == 0 {
-						tb1.Reply(m, "添加成功！")
+					p := cuser(srv, m.Payload, conf1.Fileid)
+					if p != "" {
+						tb1.Reply(m, "添加成功！ID:"+p)
 					} else {
 						tb1.Reply(m, "添加失败,请检查邮箱是否填写正确！")
 					}
 				} else {
 					tb1.Reply(m, "禁止非gmail邮箱！！")
 				}
+			}
+		}
+	})
+	tb1.Handle("/del", func(m *tb.Message) {
+		fmt.Println(m.Sender.Username)
+		if m.Sender.Username == "@Liumik" {
+			if del(srv, conf1.Fileid, m.Payload) == 0 {
+				tb1.Reply(m, "添加成功")
+			} else {
+				tb1.Reply(m, "添加失败，请查看后台日志")
 			}
 		}
 	})
