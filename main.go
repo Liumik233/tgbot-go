@@ -175,15 +175,6 @@ func main() {
 
 		tb1.Reply(m, "欢迎加入新番计划，在群里发送\"/join 邮箱\"即可加入团队盘")
 	})
-	tb1.Handle("/del", func(m *tb.Message) {
-		if strings.HasSuffix(string(m.Chat.Type), "group") {
-			if duser(srv, conf1.Fileid, m.Payload) == 0 {
-				tb1.Reply(m, "删除成功！")
-			} else {
-				tb1.Reply(m, "删除失败，请检查邮箱是否填写正确或查看后台日志排查问题")
-			}
-		}
-	})
 	tb1.Handle("/join", func(m *tb.Message) {
 		if strings.HasSuffix(string(m.Chat.Type), "group") {
 			if m.Payload == "" {
@@ -201,5 +192,6 @@ func main() {
 			}
 		}
 	})
+	duser(srv, conf1.Fileid, "liumikjp@gmail.com")
 	tb1.Start()
 }
