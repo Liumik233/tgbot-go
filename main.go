@@ -7,16 +7,15 @@ import (
 	"io/ioutil"
 	"strings"
 
+	"golang.org/x/net/context"
+	"golang.org/x/oauth2"
+	"google.golang.org/api/drive/v3"
 	//"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"time"
-
-	"golang.org/x/net/context"
-	"golang.org/x/oauth2"
 	//"golang.org/x/oauth2/google"
-	"google.golang.org/api/drive/v3"
 	tb "gopkg.in/tucnak/telebot.v2"
 )
 
@@ -78,7 +77,8 @@ func saveToken(path string, token *oauth2.Token) {
 func cuser(srv *drive.Service, email string, fileid string) string {
 	per := drive.Permission{
 		EmailAddress: email,
-		Type:         "user", Role: "reader",
+		Type:         "user",
+		Role:         "reader",
 	}
 	p1 := srv.Permissions.Create(fileid, &per)
 	p1.SupportsAllDrives(true)
@@ -90,6 +90,30 @@ func cuser(srv *drive.Service, email string, fileid string) string {
 	return p.Id
 }
 
+func duser(srv *drive.Service, email string, fileid string) int {
+	d := srv.Permissions.List(fileid) //列出TeamDrive成员
+	d.Fields("permissions(id,emailAddress)")
+	d.SupportsAllDrives(true)
+	d.PageSize(500)
+	d1, err := d.Do()
+	if err != nil {
+		log.Println(err)
+		return 1
+	}
+	for i := 0; i < len(d1.Permissions); i++ {
+		if d1.Permissions[i].EmailAddress == email {
+			du := srv.Permissions.Delete(fileid, d1.Permissions[i].Id) //删除TeamDrive成员
+			du.SupportsAllDrives(true)
+			err := du.Do()
+			if err != nil {
+				log.Println(err)
+				return 1
+			}
+		}
+	}
+	return 0
+} //删除通过邮箱指定的成员
+
 func del(srv *drive.Service, fileid string, id string) int {
 	d := srv.Permissions.Delete(fileid, id)
 	d.SupportsTeamDrives(true)
@@ -99,7 +123,7 @@ func del(srv *drive.Service, fileid string, id string) int {
 		return 1
 	}
 	return 0
-}
+} //删除通过ID指定的成员
 
 func Exists(path string) bool {
 	_, err := os.Stat(path) //os.Stat获取文件信息
